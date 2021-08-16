@@ -105,7 +105,7 @@ class FFGLayer(Layer):
     def _set_prior(self):
         """Set the variational posterior to be the prior"""
         w_mean = self.w_prior.loc.detach().clone()
-        w_logstd = torch.log(self.w_prior.loc.detach().clone())
+        w_logstd = torch.log(self.w_prior.scale.detach().clone())
         b_mean = self.b_prior.loc.detach().clone()
         b_logstd = torch.log(self.b_prior.scale.detach().clone())
         self.w_mean = Parameter(w_mean)
